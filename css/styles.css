@@ -1,0 +1,20 @@
+/* Sidebar fixo em telas médias e grandes */
+#sidebar {
+    width: 250px;
+    min-height: 100vh;
+}
+
+/* Oculta sidebar no mobile */
+@media (max-width: 768px) {
+    #sidebar {
+        display: none;
+    }
+
+    #sidebar.show {
+        display: block;
+        position: absolute;
+        z-index: 1030;
+        background-color: #343a40;
+        height: 100%;
+    }
+}
