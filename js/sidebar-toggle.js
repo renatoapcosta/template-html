@@ -1,4 +1,4 @@
-document.getElementById('toggleMenu').addEventListener('click', function () {
+document.getElementById('toggleSidebar').addEventListener('click', function () {
     const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('show');
+    sidebar.classList.toggle('active');
 });

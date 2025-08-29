@@ -1,20 +1,42 @@
-/* Sidebar fixo em telas médias e grandes */
-#sidebar {
-    width: 250px;
+/* Espaço para a navbar fixa */
+body {
+    padding-top: 56px;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
 }
 
-/* Oculta sidebar no mobile */
+/* Sidebar padrão em telas grandes */
+#sidebar {
+    width: 250px;
+    min-height: calc(100vh - 56px - 40px); /* altura total - navbar - footer */
+    transition: transform 0.3s ease;
+}
+
+/* Conteúdo principal ajustado */
+#mainContent {
+    min-height: calc(100vh - 56px - 40px);
+    background-color: #f8f9fa;
+}
+
+/* Sidebar oculta no mobile ou via JS */
 @media (max-width: 768px) {
     #sidebar {
-        display: none;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        height: calc(100vh - 56px);
+        z-index: 1040;
+        transform: translateX(-100%);
     }
 
-    #sidebar.show {
-        display: block;
-        position: absolute;
-        z-index: 1030;
-        background-color: #343a40;
-        height: 100%;
+    #sidebar.active {
+        transform: translateX(0);
     }
+}
+
+/* Rodapé sempre no final */
+footer {
+    height: 40px;
+    margin-top: auto;
 }
