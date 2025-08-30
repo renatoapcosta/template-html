@@ -12,21 +12,32 @@ body {
     overflow: hidden;
 }
 
-/* Estado oculto em qualquer resolução */
 #sidebar.collapsed {
     width: 0 !important;
     padding: 0 !important;
     transform: translateX(-100%);
 }
 
-/* Conteúdo principal sempre ocupa o restante */
+/* Painel de Notificações à Direita */
+#notificationPanel {
+    width: 300px;
+    min-height: calc(100vh - 56px - 40px);
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+    position: relative;
+    z-index: 1030;
+}
+
+#notificationPanel.active {
+    transform: translateX(0);
+}
+
 #mainContent {
     min-height: calc(100vh - 56px - 40px);
     background-color: #f8f9fa;
-    transition: margin-left 0.3s ease;
+    transition: margin 0.3s ease;
 }
 
-/* Rodapé */
 footer {
     height: 40px;
     margin-top: auto;
