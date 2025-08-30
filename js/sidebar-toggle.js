@@ -1,10 +1,16 @@
-// Toggle da barra lateral esquerda
 document.getElementById('toggleSidebar').addEventListener('click', function () {
-    document.getElementById('sidebar').classList.toggle('collapsed');
+    const sidebar = document.getElementById('sidebar');
+
+    // Alterna classe entre active (mobile) e hidden (desktop)
+    if (window.innerWidth < 768) {
+        sidebar.classList.toggle('active');
+    } else {
+        sidebar.classList.toggle('hidden');
+    }
 });
 
-// Toggle do painel de notificações à direita
 document.getElementById('toggleNotification').addEventListener('click', function () {
     document.getElementById('notificationPanel').classList.toggle('active');
 });
+
 
