@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layout com Notificações</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- Navbar Superior -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid justify-content-between">
+    <div>
+      <button class="btn btn-outline-light me-2" id="toggleSidebar">☰</button>
+      <a class="navbar-brand" href="#">Meu Sistema</a>
+    </div>
+    <button class="btn btn-outline-warning" id="toggleNotification">🔔</button>
+  </div>
+</nav>
+
+<!-- Layout com Sidebar e Conteúdo -->
+<div class="d-flex" id="layoutContainer">
+
+  <!-- Sidebar Esquerda -->
+  <!-- Sidebar Esquerda com Submenus -->
+  <aside id="sidebar" class="bg-secondary text-white p-3">
+    <h5>Menu</h5>
+    <ul class="nav flex-column" id="menuAccordion">
+
+      <!-- Menu 1 com Submenu -->
+      <li class="nav-item">
+        <a class="nav-link text-white" data-bs-toggle="collapse" href="#submenu1" role="button" aria-expanded="false" aria-controls="submenu1">
+          📁 Cadastros
+        </a>
+        <div class="collapse" id="submenu1" data-bs-parent="#menuAccordion">
+          <ul class="nav flex-column ms-3">
+            <li class="nav-item"><a class="nav-link text-white" href="#">Clientes</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Fornecedores</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Produtos</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Menu 2 com Submenu -->
+      <li class="nav-item">
+        <a class="nav-link text-white" data-bs-toggle="collapse" href="#submenu2" role="button" aria-expanded="false" aria-controls="submenu2">
+          ⚙️ Configurações
+        </a>
+        <div class="collapse" id="submenu2" data-bs-parent="#menuAccordion">
+          <ul class="nav flex-column ms-3">
+            <li class="nav-item"><a class="nav-link text-white" href="#">Usuários</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Permissões</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Preferências</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Item Simples -->
+      <li class="nav-item"><a class="nav-link text-white" href="#">📊 Relatórios</a></li>
+
+    </ul>
+  </aside>
+
+
+  <!-- Conteúdo Principal -->
+  <main id="mainContent" class="flex-grow-1 p-4">
+    <div class="container py-4">
+      <h2>Ações com Modal</h2>
+      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal">Deletar Registro</button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+              <h5 class="modal-title" id="confirmModalLabel">Confirmação</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              Tem certeza que deseja excluir este registro? Esta ação não poderá ser desfeita.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger">Confirmar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h3>Modal de Confirmação Simples</h3>
+
+    <!-- Botão -->
+    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalConfirmar">
+      Excluir Item
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalConfirmar" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title">Confirmar Exclusão</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            Tem certeza que deseja excluir este item? Esta ação não poderá ser desfeita.
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button class="btn btn-danger">Excluir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h3>Modal com Formulário</h3>
+
+    <!-- Botão -->
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalForm">
+      Adicionar Usuário
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalForm" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title">Novo Usuário</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="nomeUsuario" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nomeUsuario">
+              </div>
+              <div class="mb-3">
+                <label for="emailUsuario" class="form-label">Email</label>
+                <input type="email" class="form-control" id="emailUsuario">
+              </div>
+              <div class="mb-3">
+                <label for="perfilUsuario" class="form-label">Perfil</label>
+                <select class="form-select" id="perfilUsuario">
+                  <option>Administrador</option>
+                  <option>Editor</option>
+                  <option>Visualizador</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button class="btn btn-success">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h3>Modal com Imagem</h3>
+    <!-- Botão -->
+    <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalImagem">
+      Ver Imagem
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalImagem" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <img src="https://via.placeholder.com/800x400" class="img-fluid rounded" alt="Exemplo">
+        </div>
+      </div>
+    </div>
+
+    <h3>Modal Centralizado Vertical</h3>
+
+    <!-- Botão -->
+    <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalCenter">
+      Abrir Modal Central
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalCenter" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal Centralizado</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            Esse modal está centralizado verticalmente.
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h3>Modal com Spinner (Carregando)</h3>
+
+    <!-- Botão -->
+    <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modalSpinner">
+      Processar...
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalSpinner" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+          <div class="spinner-border text-primary mb-3" role="status"></div>
+          <p>Processando... Aguarde.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Modal com Scroll Interno</h3>
+
+    <!-- Botão -->
+    <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalScroll">
+      Abrir com Scroll
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalScroll" tabindex="-1">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Conteúdo Extenso</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Vestibulum id justo finibus, fermentum elit sed, commodo lacus.</p>
+            <!-- repita para simular scroll -->
+            <p>Sed a sapien at enim facilisis vehicula.</p>
+            <p>Aliquam erat volutpat. Nullam in justo quis elit tempus laoreet.</p>
+            <p>Phasellus sagittis, lorem vel posuere volutpat, velit felis dapibus nulla...</p>
+            <p>Aliquam erat volutpat...</p>
+            <p>Lorem ipsum dolor sit amet...</p>
+            <p>Vestibulum nec tincidunt tortor...</p>
+            <p>Praesent a justo euismod, volutpat augue ut...</p>
+            <p>Proin blandit turpis nec velit malesuada...</p>
+            <p>Finito!</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+
+  <!-- Painel de Notificações à Direita -->
+  <aside id="notificationPanel" class="bg-light border-start shadow">
+    <div class="p-3">
+      <h5>Notificações</h5>
+      <ul class="list-group">
+        <li class="list-group-item">📣 Novo agendamento disponível</li>
+        <li class="list-group-item">⚠️ Manutenção às 22h</li>
+        <li class="list-group-item">✅ Backup concluído com sucesso</li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<!-- Rodapé -->
+<footer class="bg-dark text-white text-center py-2">
+  <small>&copy; 2025 Meu Sistema. Todos os direitos reservados.</small>
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/sidebar-toggle.js"></script>
+</body>
+</html>

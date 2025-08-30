@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layout com Notificações</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- Navbar Superior -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid justify-content-between">
+    <div>
+      <button class="btn btn-outline-light me-2" id="toggleSidebar">☰</button>
+      <a class="navbar-brand" href="#">Meu Sistema</a>
+    </div>
+    <button class="btn btn-outline-warning" id="toggleNotification">🔔</button>
+  </div>
+</nav>
+
+<!-- Layout com Sidebar e Conteúdo -->
+<div class="d-flex" id="layoutContainer">
+
+  <!-- Sidebar Esquerda -->
+  <!-- Sidebar Esquerda com Submenus -->
+  <aside id="sidebar" class="bg-secondary text-white p-3">
+    <h5>Menu</h5>
+    <ul class="nav flex-column" id="menuAccordion">
+
+      <!-- Menu 1 com Submenu -->
+      <li class="nav-item">
+        <a class="nav-link text-white" data-bs-toggle="collapse" href="#submenu1" role="button" aria-expanded="false" aria-controls="submenu1">
+          📁 Cadastros
+        </a>
+        <div class="collapse" id="submenu1" data-bs-parent="#menuAccordion">
+          <ul class="nav flex-column ms-3">
+            <li class="nav-item"><a class="nav-link text-white" href="#">Clientes</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Fornecedores</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Produtos</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Menu 2 com Submenu -->
+      <li class="nav-item">
+        <a class="nav-link text-white" data-bs-toggle="collapse" href="#submenu2" role="button" aria-expanded="false" aria-controls="submenu2">
+          ⚙️ Configurações
+        </a>
+        <div class="collapse" id="submenu2" data-bs-parent="#menuAccordion">
+          <ul class="nav flex-column ms-3">
+            <li class="nav-item"><a class="nav-link text-white" href="#">Usuários</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Permissões</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Preferências</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Item Simples -->
+      <li class="nav-item"><a class="nav-link text-white" href="#">📊 Relatórios</a></li>
+
+    </ul>
+  </aside>
+
+
+  <!-- Conteúdo Principal -->
+  <main id="mainContent" class="flex-grow-1 p-4">
+
+    <div class="container py-4">
+      <h2>Formulário Horizontal</h2>
+      <form>
+        <!-- Linha 1 -->
+        <div class="row mb-3">
+          <label for="input1" class="col-sm-2 col-form-label">Nome</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="input1">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="input2" class="col-sm-2 col-form-label">Sobrenome</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="input2">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label">Gênero</label>
+          <div class="col-sm-10">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="genero" id="masc">
+              <label class="form-check-label" for="masc">Masculino</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="genero" id="fem">
+              <label class="form-check-label" for="fem">Feminino</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="input3" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="input3">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="input4" class="col-sm-2 col-form-label">Telefone</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="input4">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label">Permissões</label>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="chk1">
+              <label class="form-check-label" for="chk1">Administrador</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="chk2">
+              <label class="form-check-label" for="chk2">Editor</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="chk3">
+              <label class="form-check-label" for="chk3">Visualizador</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="chk4">
+              <label class="form-check-label" for="chk4">Suporte</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="select1" class="col-sm-2 col-form-label">Departamento</label>
+          <div class="col-sm-10">
+            <select class="form-select" id="select1">
+              <option>RH</option>
+              <option>TI</option>
+              <option>Financeiro</option>
+              <option>Comercial</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="textarea1" class="col-sm-2 col-form-label">Observações</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="textarea1" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="offset-sm-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </main>
+
+  <!-- Painel de Notificações à Direita -->
+  <aside id="notificationPanel" class="bg-light border-start shadow">
+    <div class="p-3">
+      <h5>Notificações</h5>
+      <ul class="list-group">
+        <li class="list-group-item">📣 Novo agendamento disponível</li>
+        <li class="list-group-item">⚠️ Manutenção às 22h</li>
+        <li class="list-group-item">✅ Backup concluído com sucesso</li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<!-- Rodapé -->
+<footer class="bg-dark text-white text-center py-2">
+  <small>&copy; 2025 Meu Sistema. Todos os direitos reservados.</small>
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/sidebar-toggle.js"></script>
+</body>
+</html>

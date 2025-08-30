@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layout com Notificações</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- Navbar Superior -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid justify-content-between">
+    <div>
+      <button class="btn btn-outline-light me-2" id="toggleSidebar">☰</button>
+      <a class="navbar-brand" href="#">Meu Sistema</a>
+    </div>
+    <button class="btn btn-outline-warning" id="toggleNotification">🔔</button>
+  </div>
+</nav>
+
+<!-- Layout com Sidebar e Conteúdo -->
+<div class="d-flex" id="layoutContainer">
+
+  <!-- Sidebar Esquerda -->
+  <!-- Sidebar Esquerda com Submenus -->
+  <aside id="sidebar" class="bg-secondary text-white p-3">
+    <h5>Menu</h5>
+    <ul class="nav flex-column" id="menuAccordion">
+
+      <!-- Menu 1 com Submenu -->
+      <li class="nav-item">
+        <a class="nav-link text-white" data-bs-toggle="collapse" href="#submenu1" role="button" aria-expanded="false" aria-controls="submenu1">
+          📁 Cadastros
+        </a>
+        <div class="collapse" id="submenu1" data-bs-parent="#menuAccordion">
+          <ul class="nav flex-column ms-3">
+            <li class="nav-item"><a class="nav-link text-white" href="#">Clientes</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Fornecedores</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Produtos</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Menu 2 com Submenu -->
+      <li class="nav-item">
+        <a class="nav-link text-white" data-bs-toggle="collapse" href="#submenu2" role="button" aria-expanded="false" aria-controls="submenu2">
+          ⚙️ Configurações
+        </a>
+        <div class="collapse" id="submenu2" data-bs-parent="#menuAccordion">
+          <ul class="nav flex-column ms-3">
+            <li class="nav-item"><a class="nav-link text-white" href="#">Usuários</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Permissões</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Preferências</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Item Simples -->
+      <li class="nav-item"><a class="nav-link text-white" href="#">📊 Relatórios</a></li>
+
+    </ul>
+  </aside>
+
+
+  <!-- Conteúdo Principal -->
+  <main id="mainContent" class="flex-grow-1 p-4">
+    <div class="container py-4">
+      <h2>Exemplo de Tabs</h2>
+
+      <ul class="nav nav-tabs" id="tabExample" role="tablist">
+        <li class="nav-item">
+          <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab">Scroll</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab">Collapse / Acordeão</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="tab3-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab">Carousel</button>
+        </li>
+      </ul>
+
+      <div class="tab-content border p-3 bg-light" id="tabExampleContent">
+        <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+
+
+          <div class="container py-4">
+            <h2>Scroll Vertical</h2>
+
+            <div class="border p-3 bg-white" style="height: 200px; overflow-y: auto;">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p>Phasellus nec ante sed magna fermentum aliquet. Donec euismod velit nec dolor fringilla.</p>
+              <p>Aenean accumsan sem sit amet leo volutpat, quis placerat nisl efficitur.</p>
+              <p>Sed sollicitudin odio nec imperdiet sodales.</p>
+              <p>Morbi vitae neque at quam fermentum luctus.</p>
+              <p>Nullam fringilla suscipit purus, nec eleifend risus accumsan id.</p>
+              <p>Nam posuere, metus nec tempus luctus, sapien ex efficitur orci.</p>
+              <p>Integer tincidunt justo in sem pretium, nec tincidunt purus fermentum.</p>
+              <p>Duis ac justo a lorem dignissim commodo.</p>
+              <p>Curabitur tincidunt magna sit amet sodales hendrerit.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="tab-pane fade" id="tab2" role="tabpanel">
+          <div class="container py-4">
+            <h2>Collapse / Acordeão</h2>
+
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                    Seção 1: Detalhes Gerais
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    Informações gerais sobre o item selecionado.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                    Seção 2: Histórico
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    Exibição do histórico de alterações e movimentações.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Collapse simples -->
+            <button class="btn btn-secondary mb-2" data-bs-toggle="collapse" data-bs-target="#infoExtra">Mostrar Detalhes</button>
+            <div class="collapse" id="infoExtra">
+              <div class="card card-body">
+                Informações extras visíveis apenas quando o botão é ativado.
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="tab-pane fade" id="tab3" role="tabpanel">
+
+          <div class="container py-4">
+            <h2>Carousel</h2>
+
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="https://via.placeholder.com/800x200?text=Slide+1" class="d-block w-100" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://via.placeholder.com/800x200?text=Slide+2" class="d-block w-100" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://via.placeholder.com/800x200?text=Slide+3" class="d-block w-100" alt="Slide 3">
+                </div>
+              </div>
+              <button class="carousel-control-prev" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button class="carousel-control-next" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Painel de Notificações à Direita -->
+  <aside id="notificationPanel" class="bg-light border-start shadow">
+    <div class="p-3">
+      <h5>Notificações</h5>
+      <ul class="list-group">
+        <li class="list-group-item">📣 Novo agendamento disponível</li>
+        <li class="list-group-item">⚠️ Manutenção às 22h</li>
+        <li class="list-group-item">✅ Backup concluído com sucesso</li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<!-- Rodapé -->
+<footer class="bg-dark text-white text-center py-2">
+  <small>&copy; 2025 Meu Sistema. Todos os direitos reservados.</small>
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/sidebar-toggle.js"></script>
+</body>
+</html>
