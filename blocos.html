@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layout com Notificações</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- Navbar Superior -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid justify-content-between">
+    <div>
+      <button class="btn btn-outline-light me-2" id="toggleSidebar">☰</button>
+      <a class="navbar-brand" href="#">Meu Sistema</a>
+    </div>
+    <button class="btn btn-outline-warning" id="toggleNotification">🔔</button>
+  </div>
+</nav>
+
+<!-- Layout com Sidebar e Conteúdo -->
+<div class="d-flex" id="layoutContainer">
+
+  <!-- Sidebar Esquerda -->
+  <!-- Sidebar Esquerda com Submenus -->
+  <aside id="sidebar" class="bg-secondary text-white p-3">
+    <h5>Menu</h5>
+    <ul class="nav flex-column" id="menuAccordion">
+
+      <!-- Menu 1 com Submenu -->
+      <li class="nav-item">
+        <a class="nav-link text-white" data-bs-toggle="collapse" href="#submenu1" role="button" aria-expanded="false" aria-controls="submenu1">
+          📁 Cadastros
+        </a>
+        <div class="collapse" id="submenu1" data-bs-parent="#menuAccordion">
+          <ul class="nav flex-column ms-3">
+            <li class="nav-item"><a class="nav-link text-white" href="#">Clientes</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Fornecedores</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Produtos</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Menu 2 com Submenu -->
+      <li class="nav-item">
+        <a class="nav-link text-white" data-bs-toggle="collapse" href="#submenu2" role="button" aria-expanded="false" aria-controls="submenu2">
+          ⚙️ Configurações
+        </a>
+        <div class="collapse" id="submenu2" data-bs-parent="#menuAccordion">
+          <ul class="nav flex-column ms-3">
+            <li class="nav-item"><a class="nav-link text-white" href="#">Usuários</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Permissões</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Preferências</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Item Simples -->
+      <li class="nav-item"><a class="nav-link text-white" href="#">📊 Relatórios</a></li>
+
+    </ul>
+  </aside>
+
+
+  <!-- Conteúdo Principal -->
+  <main id="mainContent" class="flex-grow-1 p-4">
+
+    <h3>Bloco: Card Clicável com Hover</h3>
+    <div class="row g-3 mb-4">
+      <div class="col-md-4">
+        <a href="#" class="text-decoration-none">
+          <div class="card h-100 shadow-sm border-0 bg-white hover-shadow">
+            <div class="card-body text-center">
+              <i class="bi bi-bar-chart-fill fs-1 text-primary mb-2"></i>
+              <h5 class="card-title">Relatórios</h5>
+              <p class="card-text text-muted">Acesse relatórios financeiros e operacionais.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="#" class="text-decoration-none">
+          <div class="card h-100 shadow-sm border-0 bg-white hover-shadow">
+            <div class="card-body text-center">
+              <i class="bi bi-person-gear fs-1 text-success mb-2"></i>
+              <h5 class="card-title">Usuários</h5>
+              <p class="card-text text-muted">Gerencie permissões e contas de acesso.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="#" class="text-decoration-none">
+          <div class="card h-100 shadow-sm border-0 bg-white hover-shadow">
+            <div class="card-body text-center">
+              <i class="bi bi-gear fs-1 text-warning mb-2"></i>
+              <h5 class="card-title">Configurações</h5>
+              <p class="card-text text-muted">Personalize preferências do sistema.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <h3>Bloco: Lista de Itens com Botões Laterais</h3>
+    <div class="mb-4">
+      <h5 class="mb-3">Tarefas Recentes</h5>
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Corrigir layout responsivo
+          <button class="btn btn-sm btn-outline-success">✔️ Concluir</button>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Revisar permissões de acesso
+          <button class="btn btn-sm btn-outline-primary">🔍 Ver</button>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Atualizar backups
+          <button class="btn btn-sm btn-outline-danger">❌ Cancelar</button>
+        </li>
+      </ul>
+    </div>
+
+    <h3>Bloco: Tabela com Avatares e Status</h3>
+    <div class="mb-4">
+      <h5 class="mb-3">Equipe Técnica</h5>
+      <div class="table-responsive">
+        <table class="table table-borderless align-middle">
+          <thead class="table-light">
+          <tr>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>Status</th>
+            <th class="text-end">Ação</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><i class="bi bi-person-circle me-2 text-secondary"></i> João Pereira</td>
+            <td>Dev Backend</td>
+            <td><span class="badge bg-success">Online</span></td>
+            <td class="text-end"><button class="btn btn-sm btn-outline-primary">Detalhes</button></td>
+          </tr>
+          <tr>
+            <td><i class="bi bi-person-circle me-2 text-secondary"></i> Ana Silva</td>
+            <td>QA Analyst</td>
+            <td><span class="badge bg-warning text-dark">Ausente</span></td>
+            <td class="text-end"><button class="btn btn-sm btn-outline-primary">Detalhes</button></td>
+          </tr>
+          <tr>
+            <td><i class="bi bi-person-circle me-2 text-secondary"></i> Carlos Mendes</td>
+            <td>Dev Frontend</td>
+            <td><span class="badge bg-danger">Offline</span></td>
+            <td class="text-end"><button class="btn btn-sm btn-outline-primary">Detalhes</button></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3>Bloco: Resumo em “Pills” de dados</h3>
+    <div class="mb-4">
+      <h5 class="mb-3">Status do Sistema</h5>
+      <div class="d-flex flex-wrap gap-3">
+        <div class="bg-primary text-white p-3 rounded-pill px-4 shadow-sm">Serviços ativos: 18</div>
+        <div class="bg-success text-white p-3 rounded-pill px-4 shadow-sm">Sessões online: 56</div>
+        <div class="bg-warning text-dark p-3 rounded-pill px-4 shadow-sm">Pendências: 4</div>
+        <div class="bg-danger text-white p-3 rounded-pill px-4 shadow-sm">Falhas: 2</div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Painel de Notificações à Direita -->
+  <aside id="notificationPanel" class="bg-light border-start shadow">
+    <div class="p-3">
+      <h5>Notificações</h5>
+      <ul class="list-group">
+        <li class="list-group-item">📣 Novo agendamento disponível</li>
+        <li class="list-group-item">⚠️ Manutenção às 22h</li>
+        <li class="list-group-item">✅ Backup concluído com sucesso</li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<!-- Rodapé -->
+<footer class="bg-dark text-white text-center py-2">
+  <small>&copy; 2025 Meu Sistema. Todos os direitos reservados.</small>
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/sidebar-toggle.js"></script>
+</body>
+</html>

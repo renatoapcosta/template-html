@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layout com Notificações</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- Navbar Superior -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid justify-content-between">
+    <div>
+      <button class="btn btn-outline-light me-2" id="toggleSidebar">☰</button>
+      <a class="navbar-brand" href="#">Meu Sistema</a>
+    </div>
+    <button class="btn btn-outline-warning" id="toggleNotification">🔔</button>
+  </div>
+</nav>
+
+<!-- Layout com Sidebar e Conteúdo -->
+<!--<div class="d-flex" id="layoutContainer">-->
+<div class="flex-grow-1 d-flex flex-column position-relative">
+
+  <!-- Sidebar Esquerda -->
+  <!-- Sidebar Esquerda com Submenus -->
+  <aside id="sidebar" class="bg-secondary text-white p-3">
+    <h5>Menu</h5>
+    <ul class="nav flex-column" id="menuAccordion">
+
+      <!-- Menu 1 com Submenu -->
+      <li class="nav-item">
+        <a class="nav-link text-white" data-bs-toggle="collapse" href="#submenu1" role="button" aria-expanded="false" aria-controls="submenu1">
+          📁 Cadastros
+        </a>
+        <div class="collapse" id="submenu1" data-bs-parent="#menuAccordion">
+          <ul class="nav flex-column ms-3">
+            <li class="nav-item"><a class="nav-link text-white" href="#">Clientes</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Fornecedores</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Produtos</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Menu 2 com Submenu -->
+      <li class="nav-item">
+        <a class="nav-link text-white" data-bs-toggle="collapse" href="#submenu2" role="button" aria-expanded="false" aria-controls="submenu2">
+          ⚙️ Configurações
+        </a>
+        <div class="collapse" id="submenu2" data-bs-parent="#menuAccordion">
+          <ul class="nav flex-column ms-3">
+            <li class="nav-item"><a class="nav-link text-white" href="#">Usuários</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Permissões</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Preferências</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Item Simples -->
+      <li class="nav-item"><a class="nav-link text-white" href="#">📊 Relatórios</a></li>
+
+    </ul>
+  </aside>
+
+
+  <!-- Conteúdo Principal -->
+  <main id="mainContent" class="flex-grow-1 p-4">
+    <!-- Seção de título e breadcrumb -->
+    <section class="mb-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2 class="mb-0">Título da Página</h2>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#">Início</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Atual</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Seção "hero" destacada -->
+    <section class="mb-4 p-4 bg-primary text-white rounded shadow-sm">
+      <h4>Bem-vindo</h4>
+      <p>Esta área pode conter um resumo, alerta, instruções ou KPIs rápidos.</p>
+    </section>
+
+    <!-- Seção com 3 colunas (cards/resumo) -->
+    <section class="row g-3 mb-4">
+      <div class="col-md-4">
+        <div class="card border-start border-4 border-primary h-100">
+          <div class="card-body">
+            <h6 class="card-title text-uppercase text-muted">Usuários Ativos</h6>
+            <h4 class="fw-bold">124</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-start border-4 border-success h-100">
+          <div class="card-body">
+            <h6 class="card-title text-uppercase text-muted">Faturamento</h6>
+            <h4 class="fw-bold">R$ 8.320</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-start border-4 border-warning h-100">
+          <div class="card-body">
+            <h6 class="card-title text-uppercase text-muted">Alertas</h6>
+            <h4 class="fw-bold">3 pendentes</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção com colunas assimétricas -->
+    <section class="row g-3 mb-4">
+      <div class="col-lg-8">
+        <div class="card h-100">
+          <div class="card-header bg-light">
+            Tabela Resumo
+          </div>
+          <div class="card-body">
+            <table class="table table-sm table-striped mb-0">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Status</th>
+                <th>Data</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr><td>1</td><td>João</td><td><span class="badge bg-success">OK</span></td><td>28/08</td></tr>
+              <tr><td>2</td><td>Maria</td><td><span class="badge bg-warning text-dark">Pendente</span></td><td>27/08</td></tr>
+              <tr><td>3</td><td>Rafael</td><td><span class="badge bg-danger">Erro</span></td><td>26/08</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card h-100">
+          <div class="card-header bg-light">
+            Ações rápidas
+          </div>
+          <div class="card-body d-grid gap-2">
+            <button class="btn btn-outline-primary">+ Adicionar item</button>
+            <button class="btn btn-outline-secondary">Gerar relatório</button>
+            <button class="btn btn-outline-danger">Reiniciar sessão</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção final com observações / informações -->
+    <section class="mb-4">
+      <div class="alert alert-info" role="alert">
+        Dica: você pode utilizar o menu lateral para acessar diferentes módulos do sistema.
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <!-- Painel de Notificações à Direita -->
+  <aside id="notificationPanel" class="bg-light border-start shadow">
+    <div class="p-3">
+      <h5>Notificações</h5>
+      <ul class="list-group">
+        <li class="list-group-item">📣 Novo agendamento disponível</li>
+        <li class="list-group-item">⚠️ Manutenção às 22h</li>
+        <li class="list-group-item">✅ Backup concluído com sucesso</li>
+      </ul>
+    </div>
+  </aside>
+
+  <footer class="bg-dark text-white text-center py-3 mt-auto">
+    <small>&copy; 2025 Meu Sistema - Todos os direitos reservados</small>
+  </footer>
+</div>
+
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/sidebar-toggle.js"></script>
+</body>
+</html>
