@@ -1,8 +1,40 @@
+:root {
+    /* Paleta principal */
+    --cor-primaria: #0d6efd;
+    --cor-secundaria: #6c757d;
+    --cor-sucesso: #198754;
+    --cor-alerta: #ffc107;
+    --cor-perigo: #dc3545;
+
+    /* Backgrounds e textos */
+    --bg-navbar: #212529;
+    --bg-sidebar: #6c757d;
+    --bg-notificacao: #f8f9fa;
+    --bg-conteudo: #f8f9fa;
+    --bg-footer: #212529;
+
+    --texto-claro: #ffffff;
+    --texto-escuro: #212529;
+    --texto-neutro: #6c757d;
+
+    /* Hover e borda */
+    --hover-link: #adb5bd;
+    --borda-clara: #dee2e6;
+}
+
+
 body {
     padding-top: 56px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: var(--bg-conteudo);
+    color: var(--texto-escuro);
+}
+
+.navbar {
+    background-color: var(--bg-navbar) !important;
+    color: var(--texto-claro);
 }
 
 #sidebar {
@@ -10,12 +42,22 @@ body {
     min-height: calc(100vh - 56px - 40px);
     transition: transform 0.3s ease, width 0.3s ease;
     overflow: hidden;
+    background-color: var(--bg-sidebar);
+    color: var(--texto-claro);
 }
 
 #sidebar.collapsed {
     width: 0 !important;
     padding: 0 !important;
     transform: translateX(-100%);
+}
+
+#sidebar a.nav-link {
+    color: var(--texto-claro);
+}
+
+#sidebar a.nav-link:hover {
+    color: var(--hover-link);
 }
 
 /* Painel de Notificações à Direita */
@@ -26,6 +68,9 @@ body {
     transform: translateX(100%);
     position: relative;
     z-index: 1030;
+    background-color: var(--bg-notificacao);
+    border-left: 1px solid var(--borda-clara);
+    color: var(--texto-escuro);
 }
 
 #notificationPanel.active {
@@ -34,15 +79,16 @@ body {
 
 #mainContent {
     min-height: calc(100vh - 56px - 40px);
-    background-color: #f8f9fa;
+    background-color: var(--bg-conteudo);
     transition: margin 0.3s ease;
 }
 
 footer {
     height: 40px;
     margin-top: auto;
+    background-color: var(--bg-footer);
+    color: var(--texto-claro);
 }
-
 
 .nav-link[aria-expanded="true"]::after {
     content: "▲";
