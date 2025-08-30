@@ -24,15 +24,45 @@
 <div class="d-flex" id="layoutContainer">
 
   <!-- Sidebar Esquerda -->
+  <!-- Sidebar Esquerda com Submenus -->
   <aside id="sidebar" class="bg-secondary text-white p-3">
     <h5>Menu</h5>
-    <ul class="nav flex-column">
-      <li class="nav-item"><a class="nav-link text-white" href="#">Início</a></li>
-      <li class="nav-item"><a class="nav-link text-white" href="#">Serviços</a></li>
-      <li class="nav-item"><a class="nav-link text-white" href="#">Sobre</a></li>
-      <li class="nav-item"><a class="nav-link text-white" href="#">Contato</a></li>
+    <ul class="nav flex-column" id="menuAccordion">
+
+      <!-- Menu 1 com Submenu -->
+      <li class="nav-item">
+        <a class="nav-link text-white" data-bs-toggle="collapse" href="#submenu1" role="button" aria-expanded="false" aria-controls="submenu1">
+          📁 Cadastros
+        </a>
+        <div class="collapse" id="submenu1" data-bs-parent="#menuAccordion">
+          <ul class="nav flex-column ms-3">
+            <li class="nav-item"><a class="nav-link text-white" href="#">Clientes</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Fornecedores</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Produtos</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Menu 2 com Submenu -->
+      <li class="nav-item">
+        <a class="nav-link text-white" data-bs-toggle="collapse" href="#submenu2" role="button" aria-expanded="false" aria-controls="submenu2">
+          ⚙️ Configurações
+        </a>
+        <div class="collapse" id="submenu2" data-bs-parent="#menuAccordion">
+          <ul class="nav flex-column ms-3">
+            <li class="nav-item"><a class="nav-link text-white" href="#">Usuários</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Permissões</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">Preferências</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Item Simples -->
+      <li class="nav-item"><a class="nav-link text-white" href="#">📊 Relatórios</a></li>
+
     </ul>
   </aside>
+
 
   <!-- Conteúdo Principal -->
   <main id="mainContent" class="flex-grow-1 p-4">

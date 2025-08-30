@@ -42,3 +42,13 @@ footer {
     height: 40px;
     margin-top: auto;
 }
+
+
+.nav-link[aria-expanded="true"]::after {
+    content: "▲";
+    float: right;
+}
+.nav-link[aria-expanded="false"]::after {
+    content: "▼";
+    float: right;
+}

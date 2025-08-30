@@ -7,3 +7,4 @@ document.getElementById('toggleSidebar').addEventListener('click', function () {
 document.getElementById('toggleNotification').addEventListener('click', function () {
     document.getElementById('notificationPanel').classList.toggle('active');
 });
+
