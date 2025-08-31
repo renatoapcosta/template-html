@@ -1,33 +1,34 @@
 :root {
-    /* Paleta principal */
+    /* === Cores === */
     --cor-primaria: #0d6efd;
     --cor-secundaria: #6c757d;
     --cor-sucesso: #198754;
     --cor-alerta: #ffc107;
     --cor-perigo: #dc3545;
 
-    /* Backgrounds e textos */
+    /* === Backgrounds === */
     --bg-navbar: #212529;
     --bg-sidebar: #6c757d;
     --bg-notificacao: #f8f9fa;
     --bg-conteudo: #f8f9fa;
     --bg-footer: #212529;
 
+    /* === Texto === */
     --texto-claro: #ffffff;
     --texto-escuro: #212529;
     --texto-neutro: #6c757d;
 
-    /* Hover e borda */
+    /* === Interações === */
     --hover-link: #adb5bd;
     --borda-clara: #dee2e6;
 
-    /* largura e altura */
+    /* === Layout === */
     --sidebar-left-width: 250px;
     --sidebar-right-width: 300px;
     --header-height: 56px;
     --footer-height: 40px;
 
-    /* z-index */
+    /* === Camadas === */
     --sidebar-left-z-index: 1045;
     --sidebar-right-z-index: 1050;
     --footer-fixo-z-index: 999;
@@ -88,9 +89,6 @@ body {
 .sidebar-left.active {
     transform: translateX(0);
 }
-.sidebar-left.hidden {
-    transform: translateX(-100%);
-}
 
 /* ===== Conteudo Principal ===== */
 .content-main {
@@ -98,12 +96,7 @@ body {
     padding: 1.5rem;
     background-color: var(--bg-conteudo);
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
-    transition: all 0.3s ease-in-out;
-}
-
-/* Quando sidebar estiver oculta */
-.sidebar-left.hidden ~ .content-main {
-    margin-left: 0;
+    transition: margin-left 0.3s ease;
 }
 
 /* ===== Sidebar Direito ===== */
@@ -139,6 +132,9 @@ body {
 @media (min-width: 768px) {
     .sidebar-left {
         transform: translateX(0);
+    }
+    .sidebar-left.hidden {
+        transform: translateX(-100%);
     }
 
     .sidebar-left:not(.hidden) + .content-main {
