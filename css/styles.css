@@ -66,11 +66,6 @@ body {
     height: var(--header-height);
 }
 
-.navbar {
-    background-color: var(--bg-navbar) !important;
-    color: var(--texto-claro);
-}
-
 /* ===== SIDEBAR ESQUERDA ===== */
 .l-sidebar-left {
     transform: translateX(-100%);
@@ -100,7 +95,7 @@ body {
 }
 
 /* ===== Sidebar Direito ===== */
-.sidebar-right {
+.l-sidebar-right {
     transform: translateX(100%);
     position: fixed;
     top: var(--header-height);
@@ -114,10 +109,14 @@ body {
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar-right.active {
+.l-sidebar-right.active {
     transform: translateX(0);
 }
 
+.navbar {
+    background-color: var(--bg-navbar);
+    color: var(--texto-claro);
+}
 
 .nav-link[aria-expanded="true"]::after {
     content: "▲";
@@ -126,6 +125,11 @@ body {
 .nav-link[aria-expanded="false"]::after {
     content: "▼";
     float: right;
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    transition: box-shadow 0.2s ease-in-out;
 }
 
 /* ===== DESKTOP ADAPTAÇÕES ===== */
@@ -154,7 +158,11 @@ body {
     }
 }
 
-.hover-shadow:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
-    transition: box-shadow 0.2s ease-in-out;
+@media (min-width: 1200px) {
+    .l-content-main {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
 }
+
+
