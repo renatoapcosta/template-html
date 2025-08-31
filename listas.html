@@ -9,24 +9,24 @@
 </head>
 <body>
 
-<!-- Header -->
-<header class="navbar navbar-dark bg-dark fixed-top z-navbar">
+<!-- Header Main -->
+<header class="header-main navbar navbar-dark bg-dark fixed-top z-navbar">
   <div class="container-fluid">
-    <button class="btn btn-outline-light me-2" id="toggle-sidebar-left" aria-label="Abrir/Fechar Panel Lateral Esquerdo">
+    <button class="toggle-sidebar-left btn btn-outline-light me-2" aria-label="Abrir/Fechar Panel Lateral Esquerdo">
       ☰
     </button>
     <span class="navbar-brand">Meu Sistema</span>
-    <button class="btn btn-outline-light" id="toggle-sidebar-right" aria-label="Abrir/Fechar Panel Lateral Direito">
+    <button class="toggle-sidebar-right btn btn-outline-light" aria-label="Abrir/Fechar Panel Lateral Direito">
       🔔
     </button>
   </div>
 </header>
 
 <!-- Layout com Sidebar e Conteúdo -->
-<div class="d-flex" id="layoutContainer">
+<div class="container-main d-flex">
 
   <!-- Sidebar Esquerda -->
-  <aside id="sidebar-left" class="bg-secondary text-white p-3">
+  <aside class="sidebar-left bg-secondary text-white p-3">
     <h5>Menu</h5>
     <ul class="nav flex-column" id="menuAccordion">
 
@@ -65,7 +65,7 @@
   </aside>
 
   <!-- Conteúdo Principal -->
-  <main id="mainContent" class="flex-grow-1 p-4">
+  <main class="content-main flex-grow-1 p-4">
     <div class="container py-4">
       <h2>Lista de Tarefas</h2>
 
@@ -109,7 +109,7 @@
   </main>
 
   <!-- Sidebar Direita -->
-  <aside id="sidebar-right" class="bg-light border-start shadow">
+  <aside class="sidebar-right bg-light border-start shadow">
     <div class="p-3">
       <h5>Notificações</h5>
       <ul class="list-group">
@@ -122,7 +122,7 @@
 </div>
 
 <!-- Rodapé -->
-<footer class="bg-dark text-white text-center py-2">
+<footer class="footer-main bg-dark text-white text-center py-2">
   <small>&copy; 2025 Meu Sistema. Todos os direitos reservados.</small>
 </footer>
 
