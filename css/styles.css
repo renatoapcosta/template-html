@@ -24,8 +24,8 @@
     /* largura e altura */
     --sidebar-left-width: 250px;
     --sidebar-right-width: 300px;
-    --footer-height: 40px;
     --header-height: 56px;
+    --footer-height: 40px;
 
     /* z-index */
     --sidebar-left-z-index: 1045;
@@ -72,31 +72,33 @@ body {
 
 /* ===== SIDEBAR ESQUERDA ===== */
 .sidebar-left {
-    width: var(--sidebar-left-width);
-    background-color: var(--bg-sidebar);
-    color: var(--texto-claro);
-    height: calc(100vh - var(--header-height));
+    transform: translateX(-100%);
     position: fixed;
     top: var(--header-height);
     left: 0;
+    width: var(--sidebar-left-width);
+    height: calc(100vh - var(--header-height));
+    background-color: var(--bg-sidebar);
+    color: var(--texto-claro);
     z-index: var(--sidebar-left-z-index);
-    overflow-y: auto;
-    transform: translateX(0);
     transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
 }
 
+.sidebar-left.active {
+    transform: translateX(0);
+}
 .sidebar-left.hidden {
     transform: translateX(-100%);
 }
 
-/* ===== CONTEÚDO PRINCIPAL ===== */
+/* ===== Conteudo Principal ===== */
 .content-main {
-    flex-grow: 1;
-    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    margin-left: 0;
     padding: 1.5rem;
-    transition: all 0.3s ease-in-out;
     background-color: var(--bg-conteudo);
-    margin-left: var(--sidebar-left-width);
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    transition: all 0.3s ease-in-out;
 }
 
 /* Quando sidebar estiver oculta */
@@ -104,16 +106,16 @@ body {
     margin-left: 0;
 }
 
-/* ===== NOTIFICAÇÃO ===== */
+/* ===== Sidebar Direito ===== */
 .sidebar-right {
-    width: var(--sidebar-right-width);
-    height: calc(100vh - var(--header-height));
-    background-color: var(--bg-notificacao);
+    transform: translateX(100%);
     position: fixed;
     top: var(--header-height);
     right: 0;
+    width: var(--sidebar-right-width);
+    height: calc(100vh - var(--header-height));
+    background-color: var(--bg-notificacao);
     z-index: var(--sidebar-right-z-index);
-    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     overflow-y: auto;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
@@ -122,7 +124,6 @@ body {
 .sidebar-right.active {
     transform: translateX(0);
 }
-
 
 
 .nav-link[aria-expanded="true"]::after {
@@ -134,25 +135,28 @@ body {
     float: right;
 }
 
-/* ===== MOBILE ADAPTAÇÕES ===== */
-@media (max-width: 767.98px) {
+/* ===== DESKTOP ADAPTAÇÕES ===== */
+@media (min-width: 768px) {
     .sidebar-left {
-        transform: translateX(-100%);
-    }
-
-    .sidebar-left.active {
         transform: translateX(0);
     }
 
-    .content-main {
-        margin-left: 0 !important;
+    .sidebar-left:not(.hidden) + .content-main {
+        margin-left: var(--sidebar-left-width);
     }
 
-    .sidebar-left ~ .content-main {
+    .sidebar-left.hidden + .content-main {
         margin-left: 0;
     }
-}
 
+    .sidebar-right {
+        transform: translateX(100%);
+    }
+
+    .sidebar-right.active {
+        transform: translateX(0);
+    }
+}
 
 .hover-shadow:hover {
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
