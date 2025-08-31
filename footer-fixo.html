@@ -13,10 +13,10 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid justify-content-between">
     <div>
-      <button class="btn btn-outline-light me-2" id="toggleSidebar">☰</button>
+      <button class="btn btn-outline-light me-2" id="toggle-sidebar-left">☰</button>
       <a class="navbar-brand" href="#">Meu Sistema</a>
     </div>
-    <button class="btn btn-outline-warning" id="toggleNotification">🔔</button>
+    <button class="btn btn-outline-warning" id="toggle-sidebar-right">🔔</button>
   </div>
 </nav>
 
@@ -27,7 +27,7 @@
   <div class="d-flex flex-grow-1" id="layoutContainer" style="min-height: 0;">
 
     <!-- Sidebar Esquerda -->
-    <aside id="sidebar" class="bg-secondary text-white p-3">
+    <aside id="sidebar-left" class="bg-secondary text-white p-3">
       <h5>Menu</h5>
       <ul class="nav flex-column" id="menuAccordion">
 
@@ -267,8 +267,8 @@
 
     </main>
 
-    <!-- Painel de Notificações à Direita -->
-    <aside id="notificationPanel" class="bg-light border-start shadow">
+    <!-- Sidebar Direita -->
+    <aside id="sidebar-right" class="bg-light border-start shadow">
       <div class="p-3">
         <h5>Notificações</h5>
         <ul class="list-group">
@@ -290,6 +290,6 @@
 </div>
 
 <script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/sidebar-toggle.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
