@@ -1,5 +1,5 @@
 document.querySelector('.toggle-sidebar-left').addEventListener('click', function () {
-    const sidebar = document.querySelector('.sidebar-left');
+    const sidebar = document.querySelector('.l-sidebar-left');
 
     // Alterna classe entre active (mobile) e hidden (desktop)
     if (window.innerWidth < 768) {
@@ -10,7 +10,7 @@ document.querySelector('.toggle-sidebar-left').addEventListener('click', functio
 });
 
 document.querySelector('.toggle-sidebar-right').addEventListener('click', function () {
-    document.querySelector('.sidebar-right').classList.toggle('active');
+    document.querySelector('.l-sidebar-right').classList.toggle('active');
 });
 
 
